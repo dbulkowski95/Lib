@@ -1,0 +1,10 @@
+.cproject
+.project
+.settings/
+Debug/
+dataLib.c
+*.out
+*.orig
+*.*.orig
+.autotools
+
