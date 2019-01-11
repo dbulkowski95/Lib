@@ -150,3 +150,11 @@ Test(BIT, BITMAP_GETBIT)
 			cr_expect_eq(bitmap_Getbit(&test, counter), false, "test.arr[size] fail in %u round.", counter);
 	}
 }
+
+Test(BIT, getbits)
+{
+}
+
+Test(BIT, setbits)
+{
+}

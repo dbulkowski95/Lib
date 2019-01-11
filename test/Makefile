@@ -12,4 +12,4 @@ test:build
 	./test
 	
 clean:
-	rm -f *.out *o test	
+	rm -f *.out *o test	*h.gch

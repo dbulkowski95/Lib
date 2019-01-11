@@ -8,4 +8,4 @@ CFLAGS= -lcriterion -lm -Wall -Wextra -Wpedantic -Wcast-align -Winit-self 		\
 build:
 	gcc bitset.h -O3 $(CFLAGS)
 clean:
-	rm -f *.out *o 
+	rm -f *.out *o *h.gch
