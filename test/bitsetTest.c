@@ -153,8 +153,34 @@ Test(BIT, BITMAP_GETBIT)
 
 Test(BIT, getbits)
 {
+	unsigned riv = 1200;
+	unsigned expectedGetbitsValue = 11;
+	/*Here we take for example 5 bits started from 8th bit
+	 *Binary value of 1200 = 010[01011]0000
+	 * 							^____  = 11, becouse
+	 * 						 0000 0000 1011
+	 * 						 						*/
+	cr_expect_eq(getbits(riv, 8, 5), expectedGetbitsValue,
+			"Returned value from getbits = %u is not equal expectedGetbitsValue = %u",
+			getbits(riv, 8, 5), expectedGetbitsValue);
 }
 
 Test(BIT, setbits)
 {
+	unsigned riv = 1200;
+	unsigned dci0 = 3;
+	unsigned expectedGetbitsValue = 4803;
+	cr_expect_eq(setbits(dci0, 14, 13, riv), expectedGetbitsValue,
+			"Returned value from setbits = %u is not equal expectedGetbitsValue = %u",
+			setbits(dci0, 14, 13, riv), expectedGetbitsValue);
+
+	/**Binary value of riv 1200 = 0000 0100 1011 0000
+	 * Binary value of dci0 3 	= 0000 0000 0000 0011
+	 * Now we take 13 bits from riv and shift left by 2 places, becouse
+	 * (14 + 1 - 13) = 2, I set now value to good place.
+	 * and use OR operation with dci0.
+	 *
+	 * (variableX & ~(~((1u << ammountOfBits) - 1u) << (position + 1u - ammountOfBits)))
+	 * this operation clear bits behind position. Bits before position stay unchanged
+	 * */
 }
