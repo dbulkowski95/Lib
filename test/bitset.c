@@ -69,7 +69,7 @@ unsigned getbits(unsigned variableX, unsigned position, unsigned ammountOfBits)
 		perror("Beyond the limit of bits in variable");
 		return UINT32_MAX;
 	}
-	return ((variableX >> (position + 1 - ammountOfBits)) & (((unsigned)1 << ammountOfBits) - (unsigned)1));
+		return ((variableX >> (position + 1 - ammountOfBits)) & ((1u << ammountOfBits) - 1u));
 }
 
 unsigned setbits(unsigned variableX, unsigned position, unsigned ammountOfBits, unsigned variableY)
@@ -79,6 +79,6 @@ unsigned setbits(unsigned variableX, unsigned position, unsigned ammountOfBits, 
 		perror("Beyond the limit of bits in variable");
 		return UINT32_MAX;
 	}
-	return (variableX & ~(~(((unsigned)1 << ammountOfBits) - (unsigned)1) << (position + (unsigned)1 - ammountOfBits))) |
-			((variableY & ~(((unsigned)1 << ammountOfBits) - (unsigned)1)) << (position + (unsigned)1 - ammountOfBits));
+	return (variableX & ~(~((1u << ammountOfBits) - 1u) << (position + 1u - ammountOfBits))) |
+			(variableY & ((1u << ammountOfBits) - 1u)) << (position + 1u - ammountOfBits);
 }
