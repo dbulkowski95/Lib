@@ -7,4 +7,5 @@ dataLib.c
 *.orig
 *.*.orig
 .autotools
-
+*.h.gch
+test
